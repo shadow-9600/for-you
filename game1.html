@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4 Catch My Love! 🎮</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background: #ffe0f6; text-align: center; margin: 0; overflow: hidden; }
+        header { background: #ec407a; color: white; padding: 10px; }
+        #game-canvas { background: #fff0f9; cursor: none; }
+        #win-message { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 20px; z-index: 200; width: 80%; }
+        .btn { background: #ec407a; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <header><h1>Catch 10 hearts! ❤️</h1></header>
+    <div style="font-size:20px; padding:10px;">Score: <span id="score-val">0</span> / 10</div>
+    <canvas id="game-canvas"></canvas>
+    <div id="win-message">
+        <h2>You Won My Heart! 🏆</h2>
+        <p>Actuall you already had it from the first day we talked I loveeeeee u soooooooo muchhhhhh babyyy!</p>
+        <button class="btn" onclick="window.location.href='future.html'">See My Promises 🚀</button>
+    </div>
+    <script>
+        const canvas = document.getElementById('game-canvas'); const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight - 150;
+        let score = 0; let hearts = []; let active = true; let basket = { x: canvas.width/2, y: canvas.height-50, w: 80 };
+        window.addEventListener('mousemove', (e) => basket.x = e.clientX - basket.w/2);
+        window.addEventListener('touchmove', (e) => basket.x = e.touches[0].clientX - basket.w/2);
+        setInterval(() => { if(active) hearts.push({x:Math.random()*(canvas.width-30), y:-30, s:3}); }, 800);
+        function draw() {
+            if(!active) return; ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.font = "40px Arial"; ctx.fillText("🧺", basket.x, basket.y+40);
+            hearts.forEach((h, i) => {
+                h.y += h.s; ctx.fillText("❤️", h.x, h.y);
+                if(h.y > basket.y && h.x > basket.x && h.x < basket.x + basket.w) {
+                    hearts.splice(i, 1); score++; document.getElementById('score-val').innerText = score;
+                    if(score >= 10) { active = false; document.getElementById('win-message').style.display='block'; }
+                }
+            }); requestAnimationFrame(draw);
+        } draw();
+    </script>
+</body>
+</html>
