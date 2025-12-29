@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Princess ❤️</title>
+    <style>
+        body { background-color: #000; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; cursor: pointer; position: relative; }
+        .flower { position: fixed; top: -50px; font-size: 24px; z-index: 1; user-select: none; animation: fall linear infinite; }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        .container { display: flex; flex-direction: row; gap: 50px; align-items: center; position: relative; z-index: 10; }
+        .tree-container { position: relative; height: 200px; display: flex; align-items: flex-end; justify-content: center; width: 100px; }
+        .tree-trunk { width: 10px; height: 0; background: #ffb7c5; border-radius: 5px; animation: growTrunk 2s forwards; }
+        @keyframes growTrunk { to { height: 200px; } }
+        .heart { position: absolute; font-size: 25px; opacity: 0; animation: fadeIn 2s forwards 2s; }
+        .h1 { top: 20px; left: 10px; }
+        .h2 { top: 60px; right: 10px; }
+        .h3 { top: 100px; left: 30px; }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(-10px); } }
+        .message p { opacity: 0; transform: translateY(20px); animation: slideUp 1s forwards; font-size: 1.5em; }
+        #line1 { animation-delay: 3s; }
+        #line2 { animation-delay: 4.5s; }
+        #line3 { animation-delay: 6s; }
+        #line4 { animation-delay: 7.5s; }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+        .click-hint { position: absolute; bottom: 30px; font-size: 0.9em; color: #ec407a; animation: blink 2s infinite; z-index: 10; }
+        @keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+    </style>
+</head>
+<body onclick="window.location.href='precious1.html'">
+    <div id="flower-container"></div>
+    <div class="container">
+        <div class="tree-container">
+             <div class="tree-trunk"></div>
+             <div class="heart h1">❤️</div>
+             <div class="heart h2">💖</div>
+             <div class="heart h3">💗</div>
+        </div>
+        <div class="message">
+            <p id="line1">Hey you yesss uuuuuu  💖</p>
+            <p id="line2">My beautiful Princess ✨</p>
+            <p id="line3">I have something to tell uu 😘😘😘</p>
+            <p id="line4">You're pretty awesome! Click kahi bhi 🤭 ✨</p>
+        </div>
+    </div>
+    <div class="click-hint">(Click kroooo naaaa betuuuu)</div>
+    <script>
+        function createFlower() {
+            const flowers = ['🌷', '🌸', '🌻', '🌺'];
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = Math.random() * 3 + 3 + 's';
+            document.getElementById('flower-container').appendChild(flower);
+            setTimeout(() => { flower.remove(); }, 6000);
+        }
+        setInterval(createFlower, 300);
+    </script>
+</body>
+</html>    
