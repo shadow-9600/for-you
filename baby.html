@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 ek dabba 🤭❤️</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background: #ffe0f6; text-align: center; margin: 0; }
+        header { background: #ec407a; color: white; padding: 20px; }
+        nav { background: #f8bbd0; padding: 10px; }
+        nav a { color: #880e4f; text-decoration: none; font-weight: bold; margin: 0 10px; }
+        .jar-container { margin: 30px auto; font-size: 100px; cursor: pointer; transition: transform 0.2s; }
+        #reason-display { margin: 20px auto; padding: 20px; max-width: 400px; background: white; border-radius: 15px; opacity: 0; transition: 0.5s; border: 2px solid #f8bbd0; }
+        #next-btn { display: none; background: #ec407a; color: white; border: none; padding: 15px 30px; border-radius: 20px; cursor: pointer; margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header><h1>Reasons Why I Love You</h1></header>
+    <nav>
+        <a href="index1.html">🏡 Home</a><a href="precious1.html">⭐ Precious</a><a href="beauty1.html">✨ Beauty</a><a href="baby.html" style="background:#880e4f;color:white;border-radius:5px;">🫙 Baby Jar</a><a href="game1.html">🎮 Game</a><a href="future.html">🚀 Future</a>
+    </nav>
+    <div class="jar-container" onclick="getReason()">🫙<br><small style="font-size:20px;">iss Dabbe ko dabao ❤️</small></div>
+    <div id="reason-display"><div id="reason-text"></div><img id="reason-image" style="width:100%; border-radius:10px; margin-top:10px;"></div>
+    <button id="next-btn" onclick="window.location.href='game1.html'">Cutuuuuu babyyyyy game khelo ge!!? tabao to 🎮</button>
+    <script>
+        let currentIndex = 0; let totalClicks = 0;
+        const reasons = [
+            { text: "The way you smile when you're happy is best nd happiest moment for me", image: "14.jpeg" },
+            { text: "How you make me feel like the luckiest man", image: "11.jpeg" },
+            { text: "Your care towards me", image: "99.jpeg" },
+            { text: "The way your eyes sparkle nd make me vanished in u🫠", image: "5.jpeg" },
+            { text: "How you support me in everything🥹", image: "1414.jpeg" },
+            { text: "The way you handle me nd my nautanki🤭🤭", image: "33.jpeg" },
+            { text: "You are my best friend first nd my future wife", image: "77.jpeg" },
+            { text: "The soft sound of your voice (ufffff 🫠)", image: "66.jpeg" },
+            { text: "How you make even boring days feel special", image: "55.jpeg" },
+            { text: "ur inner nd outer beauty (ufff babeee i'm obsessed with you🫦)", image: "9.jpeg" },
+            { text: "nd ur really really so sexy nd hot babyyyy 🫦", image: "7.jpeg" }
+        ];
+        function getReason() {
+            const display = document.getElementById('reason-display');
+            display.style.opacity = 0;
+            setTimeout(() => {
+                document.getElementById('reason-text').innerText = reasons[currentIndex].text;
+                document.getElementById('reason-image').src = reasons[currentIndex].image;
+                display.style.opacity = 1;
+                currentIndex = (currentIndex + 1) % reasons.length;
+                totalClicks++;
+                if (totalClicks >= 3) document.getElementById('next-btn').style.display = 'inline-block';
+            }, 300);
+        }
+    </script>
+</body>
+</html>
