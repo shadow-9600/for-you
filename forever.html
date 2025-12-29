@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5 Our Future 🧿❤️</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background: #ffe0f6; text-align: center; margin: 0; cursor: pointer; }
+        header { background: #ec407a; color: white; padding: 20px; }
+        nav { background: #f8bbd0; padding: 10px; }
+        nav a { color: #880e4f; text-decoration: none; font-weight: bold; margin: 0 10px; }
+        .container { display: none; padding: 30px; max-width: 800px; margin: 20px auto; background: white; border-radius: 20px; text-align: left; }
+        .promise-item { opacity: 0; padding: 15px; margin: 10px 0; border-left: 5px solid #ec407a; display: none; }
+        .show { opacity: 1; display: block; }
+        #days-box { background: #880e4f; color: white; padding: 20px; border-radius: 15px; margin-top: 20px; display: none; }
+    </style>
+</head>
+<body onclick="reveal()">
+    <header><h1>My Forever Promises</h1></header>
+    <nav onclick="event.stopPropagation()">
+        <a href="index1.html">🏡 Home</a><a href="precious1.html">⭐ Precious</a><a href="beauty1.html">✨ Beauty</a><a href="baby.html">🫙 Baby </a><a href="game1.html">🎮 Game</a><a href="future.html" style="background:#880e4f;color:white;border-radius:5px;">🚀 Future</a>
+    </nav>
+    <div id="lock" style="margin-top:50px;">🔒<br><button onclick="unlock()">Dila ka darwaza khole 🔑</button></div>
+    <div class="container" id="main">
+        <div class="promise-item">🤝 <b>I promise to always listen:</b> Even when it's the small things, I will always be your safe place to talk</div>
+        <div class="promise-item">💍 <b>I promise to be loyal:</b> As I said before, you are the last person to ever get my love. It's only u babyyyy😘😘😘😘😘😘</div>
+        <div class="promise-item">💪 <b>I promise to support your dreams:</b> I want to see you successful and will be your biggest cheerleader 😘😘😘😘</div>
+        <div class="promise-item">😊 <b>I promise to be the reason for your smile:</b> Even on your bad days, I'll try my best to make you laugh🤗</div>
+        <div class="promise-item">♾️ <b>I promise to never give up on us:</b> No matter what life throws at us, we stay together🫶🏻</div>
+        <div id="days-box">Days since perfect: <span id="count"></span><br><br><button onclick="window.location.href='forever.html'">THE FINAL SURPRISE ✨</button></div>
+    </div>
+    <script>
+        let u = false; let p = 0; const items = document.querySelectorAll('.promise-item');
+        function unlock() { u = true; document.getElementById('lock').style.display='none'; document.getElementById('main').style.display='block'; }
+        function reveal() {
+            if(!u) return;
+            if(p < items.length) { items[p].classList.add('show'); p++; }
+            else { 
+                document.getElementById('days-box').style.display='block';
+                const start = new Date("2025-02-01"); 
+                document.getElementById('count').innerText = Math.ceil(Math.abs(new Date() - start) / (1000 * 60 * 60 * 24)) + " Days";
+            }
+        }
+    </script>
+</body>
+</html>
