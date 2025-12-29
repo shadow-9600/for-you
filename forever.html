@@ -2,44 +2,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>5 Our Future 🧿❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Always & Forever ❤️</title>
     <style>
-        body { font-family: 'Arial', sans-serif; background: #ffe0f6; text-align: center; margin: 0; cursor: pointer; }
-        header { background: #ec407a; color: white; padding: 20px; }
-        nav { background: #f8bbd0; padding: 10px; }
-        nav a { color: #880e4f; text-decoration: none; font-weight: bold; margin: 0 10px; }
-        .container { display: none; padding: 30px; max-width: 800px; margin: 20px auto; background: white; border-radius: 20px; text-align: left; }
-        .promise-item { opacity: 0; padding: 15px; margin: 10px 0; border-left: 5px solid #ec407a; display: none; }
-        .show { opacity: 1; display: block; }
-        #days-box { background: #880e4f; color: white; padding: 20px; border-radius: 15px; margin-top: 20px; display: none; }
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #0b0111; overflow: hidden;
+            font-family: 'Arial', sans-serif; cursor: pointer;
+        }
+
+        #canvas { position: absolute; top: 0; left: 0; }
+
+        .content {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center; z-index: 10;
+            pointer-events: none; width: 90%;
+        }
+
+        h1 {
+            color: #fff; font-size: 4rem; opacity: 0;
+            text-shadow: 0 0 20px #ff007f, 0 0 40px #ff007f;
+            transition: opacity 2s ease-in; margin: 0;
+        }
+
+        p {
+            color: #ffc1e3; font-size: 1.5rem; opacity: 0;
+            transition: opacity 3s ease-in; margin-top: 10px;
+        }
+
+        .beating-heart {
+            font-size: 8rem; color: #ec407a; opacity: 0;
+            display: inline-block;
+            animation: pulse 1.2s infinite;
+            transition: opacity 2.5s ease-in;
+            text-shadow: 0 0 30px #ec407a;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        .nav-final {
+            position: absolute; bottom: 30px; width: 100%;
+            text-align: center; z-index: 20; opacity: 0;
+            transition: opacity 4s ease-in;
+        }
+
+        .nav-final a {
+            color: #ffc1e3; text-decoration: none; font-weight: bold;
+            margin: 0 15px; border: 1px solid #ffc1e3;
+            padding: 8px 20px; border-radius: 20px;
+        }
+
+        #tap-hint {
+            position: absolute; bottom: 50%; width: 100%;
+            text-align: center; color: #ffc1e3; font-style: italic;
+            animation: fadeInOut 2s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
     </style>
 </head>
-<body onclick="reveal()">
-    <header><h1>My Forever Promises</h1></header>
-    <nav onclick="event.stopPropagation()">
-        <a href="index1.html">🏡 Home</a><a href="precious1.html">⭐ Precious</a><a href="beauty1.html">✨ Beauty</a><a href="baby.html">🫙 Baby </a><a href="game1.html">🎮 Game</a><a href="future.html" style="background:#880e4f;color:white;border-radius:5px;">🚀 Future</a>
-    </nav>
-    <div id="lock" style="margin-top:50px;">🔒<br><button onclick="unlock()">Dila ka darwaza khole 🔑</button></div>
-    <div class="container" id="main">
-        <div class="promise-item">🤝 <b>I promise to always listen:</b> Even when it's the small things, I will always be your safe place to talk</div>
-        <div class="promise-item">💍 <b>I promise to be loyal:</b> As I said before, you are the last person to ever get my love. It's only u babyyyy😘😘😘😘😘😘</div>
-        <div class="promise-item">💪 <b>I promise to support your dreams:</b> I want to see you successful and will be your biggest cheerleader 😘😘😘😘</div>
-        <div class="promise-item">😊 <b>I promise to be the reason for your smile:</b> Even on your bad days, I'll try my best to make you laugh🤗</div>
-        <div class="promise-item">♾️ <b>I promise to never give up on us:</b> No matter what life throws at us, we stay together🫶🏻</div>
-        <div id="days-box">Days since perfect: <span id="count"></span><br><br><button onclick="window.location.href='forever.html'">THE FINAL SURPRISE ✨</button></div>
+<body onclick="startFinalReveal()">
+
+    <div id="tap-hint">Tap to start our forever... ✨</div>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="content">
+        <div class="beating-heart" id="heart">❤️</div>
+        <h1 id="main-text">I LOVE YOU</h1>
+        <p id="sub-text">Always & Forever, My Baby Girl</p>
     </div>
+
+    <div class="nav-final" id="final-nav">
+        <a href="index1.html">Start Over</a>
+        <a href="future.html">Back to Future</a>
+    </div>
+
     <script>
-        let u = false; let p = 0; const items = document.querySelectorAll('.promise-item');
-        function unlock() { u = true; document.getElementById('lock').style.display='none'; document.getElementById('main').style.display='block'; }
-        function reveal() {
-            if(!u) return;
-            if(p < items.length) { items[p].classList.add('show'); p++; }
-            else { 
-                document.getElementById('days-box').style.display='block';
-                const start = new Date("2025-02-01"); 
-                document.getElementById('count').innerText = Math.ceil(Math.abs(new Date() - start) / (1000 * 60 * 60 * 24)) + " Days";
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        let revealed = false;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = `hsl(${Math.random() * 30 + 330}, 100%, 70%)`;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.005;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
             }
         }
+
+        function init() {
+            for (let i = 0; i < 150; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(11, 1, 17, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].size <= 0.2) {
+                    particles.splice(i, 1);
+                    i--;
+                    particles.push(new Particle());
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        function startFinalReveal() {
+            if (revealed) return;
+            revealed = true;
+            
+            document.getElementById('tap-hint').style.display = 'none';
+            document.getElementById('heart').style.opacity = '1';
+            
+            setTimeout(() => {
+                document.getElementById('main-text').style.opacity = '1';
+            }, 1000);
+
+            setTimeout(() => {
+                document.getElementById('sub-text').style.opacity = '1';
+            }, 2000);
+
+            setTimeout(() => {
+                document.getElementById('final-nav').style.opacity = '1';
+            }, 4000);
+        }
+
+        init();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
     </script>
 </body>
 </html>
