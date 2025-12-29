@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2. Your Beauty ✨</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #ffe0f6; color: #4a148c; text-align: center; margin: 0; cursor: pointer; min-height: 100vh; overflow-x: hidden; }
+        header { background-color: #ec407a; color: white; padding: 20px; }
+        nav { background-color: #f8bbd0; padding: 10px; }
+        nav a { color: #880e4f; text-decoration: none; font-weight: bold; margin: 0 10px; }
+        
+        #interaction-area { height: 350px; display: flex; justify-content: center; align-items: center; flex-direction: column; position: relative; transition: opacity 0.5s; }
+        .ring-box { width: 120px; height: 100px; background: #880e4f; position: relative; border-radius: 10px; margin-top: 50px; }
+        .ring-box::before { content: ""; position: absolute; top: -40px; left: 0; width: 120px; height: 40px; background: #ad1457; border-radius: 10px 10px 0 0; border-bottom: 2px solid #4a148c; }
+        
+
+        #ring { font-size: 50px; cursor: grab; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); z-index: 100; touch-action: none; user-select: none; }
+        
+        .container { display: none; padding: 30px; max-width: 800px; margin: 20px auto; background: white; border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1); position: relative; overflow: hidden; opacity: 0; }
+        .reveal-box { opacity: 0; display: none; margin-bottom: 20px; position: relative; z-index: 10; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal-box.show { opacity: 1; display: block; transform: translateY(0); }
+        .text-block { background: rgba(255, 255, 255, 0.6); padding: 15px; border-radius: 12px; display: inline-block; }
+        img { width: 140px; border-radius: 10px; border: 3px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body onclick="showBeauty()">
+    <header><h1>My Beautiful Cutieeee pieee</h1></header>
+    <nav onclick="event.stopPropagation()">
+        <a href="index1.html">🏡 Home</a>
+        <a href="precious1.html">⭐ Precious</a>
+        <a href="beauty1.html" style="background:#880e4f;color:white;border-radius:5px;">✨ Beauty</a>
+        <a href="baby.html">🫙 Baby </a>
+        <a href="game1.html">🎮 Game</a>
+        <a href="future.html">🚀 Future</a>
+    </nav>
+
+    <div id="interaction-area">
+        <p id="drag-hint" style="font-weight: bold;">Uppar Khincho Uppar 💍</p>
+        <div class="ring-box">
+            <div id="ring">💍</div>
+        </div>
+    </div>
+
+    <div class="container" id="main-content">
+        <div class="container-bg"></div>
+        
+        <div class="reveal-box" style="font-size: 2em; color: #ec407a;">
+            <div class="text-block">You are stunning Simply stunning The perfect Gurlllll</div>
+        </div>
+        
+        <div class="reveal-box" style="text-align:left; border-left: 5px solid #ec407a; padding-left: 15px;">
+            <div class="text-block">When I tell you you're beautiful, I'm talking about the way your eyes light up when you're talking about something you love, i always get vanished in your eyes babyyy, my fav part of your body is your eyes (sbb hai but han eyes are usffffff)<br>The kindness in your smile, the cutenesss in your smile ekdam pyari pyari hai ur smile make me smile what i want is that you keep smiling every moment</div>
+            <br><img src="Unknown.png">
+        </div>
+        
+        <div class="reveal-box" style="text-align:left; border-left: 5px solid #ec407a; padding-left: 15px;">
+            <div class="text-block">The thing matters to me is that you r happy nd enjouying every moment of life nd ur with me, when you smile your cheeks also look soo cute you start to glow ,ur face looks so adorable ur sooo adorable babyyy when i see you happy i feel soo good, nd ur hairs are legit soo soft nd beautiful babyyyy nd i loveeeeeeeeee to run my fingers through ur hairs babyyyyy, ur sooo soft ur perfect my loveeee when i hug u i feel like i am in heaven nd i never want to leave u, ur hugs r soo warm nd comforting babyyyy,</div>
+            <br><img src="cute-hug.gif"><br>me me me me🤭🤭🤭
+        </div>
+        
+        <div class="reveal-box" style="text-align:left; border-left: 5px solid #ec407a; padding-left: 15px;">
+            <div class="text-block">ur the most beautiful person i have ever seen in my life nd ur the most beautiful soul i have ever met in my life, ur beauty is not just skin deep its in ur heart nd soul nd ur personality nd ur everything about u is beautiful babyyyy i loveeeeeeeeee youuuuuuuuu soooooooo muchhhhhhhh cutuuuuuu😘😘😘😘😘</div>
+            <br><img src="images.jpeg">
+        </div>
+        
+        <div class="reveal-box" style="text-align:left; border-left: 5px solid #ec407a; padding-left: 15px;">
+            <div class="text-block">Your inner beauty shines so brightly, that it makes everything around you feel warmer, Thank you for being such a perfect human being, i am so lucky to have you in my life nd i promise to always cherish nd adore u babyyyyy nd i am very lucky that day when i first talked to u nd we started our conversation nd now look at us we r together nd i am the happiest person on this earth because of u, god was on my side that day nd he sent me the most beautiful angel on this earth,i always pray to gad to keep us together forever nd never separate us, i loveeeeeeeeee youuuuuuuuu soooooooo muchhhhhhhh jaanuuuuuuuuu😘😘😘</div>
+            <br><img src="hugkiss.gif">
+        </div>
+        
+        <div class="reveal-box" style="text-align:left; border-left: 5px solid #ec407a; padding-left: 15px;">
+            <div class="text-block">now ur my best friend i share with you everthing every secret of mine ur my safe place babyyyyy,i want to be perfect person for u babyyy i want to be with you in every situation nd i want to be ur bestfriend i want to support u in every situation of life for ur future nd i want to see u sucessful in every aspect of life nd i want to see u happy nd enjoying every moment of life nd i want to be the reason of ur smile babyyyy i loveeeeeeeeee youuuuuuuuu soooooooo muchhhhhhhh cutiepieee, i am sooo proud of youuu babyyyy ur the bestesttttt babyyyyyy, ur queen for me babyyyy nd i will always treat u like a queen babyyyy</div>
+            <br><img src="Unknown555.jpeg"><br>This is how i see u babyyyyyy 😘😘😘
+        </div>
+    </div>
+
+    <script>
+        let ring = document.getElementById('ring');
+        let interactionArea = document.getElementById('interaction-area');
+        let mainContent = document.getElementById('main-content');
+        let dragHint = document.getElementById('drag-hint');
+        let isDragging = false;
+        let startY;
+        let unlocked = false;
+
+
+        function onStart(e) {
+            if (unlocked) return;
+            isDragging = true;
+            startY = e.touches ? e.touches[0].clientY : e.clientY;
+            ring.style.transition = "none";
+        }
+
+        function onMove(e) {
+            if (!isDragging || unlocked) return;
+            let currentY = e.touches ? e.touches[0].clientY : e.clientY;
+            let deltaY = currentY - startY;
+
+            if (deltaY < 0) { 
+                ring.style.transform = `translateX(-50%) translateY(${deltaY}px)`;
+                
+
+                let progress = Math.min(Math.abs(deltaY) / 150, 1);
+                interactionArea.style.opacity = 1 - progress;
+
+                if (Math.abs(deltaY) > 150) {
+                    unlock();
+                }
+            }
+        }
+
+        function onEnd() {
+            if (unlocked) return;
+            isDragging = false;
+
+            ring.style.transition = "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+            ring.style.transform = "translateX(-50%) translateY(0px)";
+            interactionArea.style.opacity = "1";
+        }
+
+        function unlock() {
+            unlocked = true;
+            isDragging = false;
+            interactionArea.style.opacity = "0";
+            
+            setTimeout(() => {
+                interactionArea.style.display = "none";
+                mainContent.style.display = "block";
+                setTimeout(() => {
+                    mainContent.style.transition = "opacity 1s";
+                    mainContent.style.opacity = "1";
+                }, 50);
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }, 500);
+        }
+
+        ring.addEventListener('mousedown', onStart);
+        ring.addEventListener('touchstart', onStart, {passive: true});
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('touchmove', onMove, {passive: false});
+        window.addEventListener('mouseup', onEnd);
+        window.addEventListener('touchend', onEnd);
+
+
+        let idx = 0;
+        const boxes = document.querySelectorAll('.reveal-box');
+        function showBeauty() { 
+            if (unlocked && idx < boxes.length) { 
+                boxes[idx].classList.add('show'); 
+                idx++; 
+                window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'}); 
+            }
+            else if (unlocked && idx >= boxes.length) { 
+                window.location.href = 'baby.html'; 
+            }
+        }
+    </script>
+</body>
+</html>
